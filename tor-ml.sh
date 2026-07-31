@@ -105,12 +105,13 @@ get_stats() {
   local pids
   pids=$(pgrep -f "tor -f $CFG/node_" 2>/dev/null || true)
   if [[ -n "$pids" ]]; then
+    local pid_list=$(echo "$pids" | tr '\n' ',' | sed 's/,$//')
     while read -r c m; do
       [[ -z "$c" ]] && continue
       cpu=$(awk -v a="$cpu" -v b="$c" 'BEGIN{printf "%.1f", a+b}')
       mem=$(awk -v a="$mem" -v b="$m" 'BEGIN{printf "%.1f", a+b}')
       cnt=$((cnt + 1))
-    done < <(ps -p $(echo "$pids" | tr '\n' ',') -o %cpu=,%mem= --no-headers 2>/dev/null || true)
+    done < <(ps -p "$pid_list" -o %cpu=,%mem= --no-headers 2>/dev/null || true)
   fi
   printf "%.1f %.1f %d" "${cpu:-0}" "${mem:-0}" "$cnt"
 }
