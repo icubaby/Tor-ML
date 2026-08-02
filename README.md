@@ -1,8 +1,7 @@
 <div align="center">
 
-# 🧅 Tor ML
-
-## 🌍 Multi Tor Location Manager
+# 🧅 **Tor ML**  
+## 🌍 *Multi Tor Location Manager*
 
 **Run multiple isolated Tor instances on a single server with an interactive terminal dashboard.**
 
@@ -15,86 +14,90 @@
 
 <br>
 
-🌍 **50 Locations** • 🔐 **Isolated Nodes** • ⚡ **Lightweight** • 🎛 **CLI Control**
+🌍 **50 Locations** &nbsp;•&nbsp; 🔐 **Isolated Nodes** &nbsp;•&nbsp; ⚡ **Lightweight** &nbsp;•&nbsp; 🎛 **CLI Control** &nbsp;•&nbsp; 📊 **v2 Dashboard**
 
 </div>
 
 ---
 
-# 🧅 Overview
+## 📖 Overview
 
-**Tor ML** is a lightweight Bash-based Tor instance manager that allows you to run multiple independent Tor nodes on a single Linux server.
+**Tor ML** is a lightweight Bash‑based Tor instance manager that lets you run **multiple independent Tor nodes** on a single Linux server.  
+Each node runs completely isolated with its own configuration, data directory, logs, SOCKS port, and real‑time metrics.
 
-Each node runs separately with:
+### 🚀 Key Highlights
 
-- ⚙️ Dedicated configuration
-- 📂 Separate data directory
-- 📜 Individual logs
-- 🔌 Unique SOCKS port
+- ⚙️ **Dedicated config** per node  
+- 📂 **Separate data directory**  
+- 📜 **Individual logs**  
+- 🔌 **Unique SOCKS port**  
+- 📈 **Per‑node CPU / RAM / Uptime / IP tracking**  
+- 🚦 **Bandwidth limiting** support  
 
 Designed for simplicity:
 
-- ✅ No Web Panel
-- ✅ No Heavy Dependencies
-- ✅ Fast Terminal Management
+- ✅ No Web Panel  
+- ✅ No Heavy Dependencies  
+- ✅ Fast Terminal Management  
 
 ---
 
-# ✨ Features
+## ✨ Features at a Glance
 
 | Feature | Description |
-|---|---|
-| 🌍 Multi Location | 50 predefined Tor exit locations |
-| 🔐 Isolation | Separate Tor process per node |
-| 🔌 SOCKS Manager | Dedicated local SOCKS ports |
-| 📊 Dashboard | CPU / RAM monitoring |
-| ▶️ Control | Start and stop locations |
-| 🚀 Bulk Actions | Start or stop all nodes |
-| 🔄 Port Manager | Change SOCKS ports |
-| ⚡ Speed Test | Latency and connection testing |
-| 📜 Logs | Separate logs per instance |
-| 🧹 Cleanup | Complete uninstall |
+|---------|-------------|
+| 🌍 **Multi Location** | 50 predefined Tor exit locations |
+| 🔐 **Isolation** | Separate Tor process per node |
+| 🔌 **SOCKS Manager** | Dedicated local SOCKS ports |
+| 📊 **Advanced Dashboard** | CPU / RAM / SOCKS / Bootstrap / Uptime / IP |
+| ▶️ **Control** | Start and stop individual locations |
+| 🚀 **Bulk Actions** | Start or stop all nodes at once |
+| 🔄 **Port Manager** | Change SOCKS ports on the fly |
+| ⚡ **Speed Test** | Latency and connection testing |
+| 📜 **View Log** | Show last 20 lines of any node log |
+| 📶 **Bandwidth Control** | Limit bandwidth per location (MB) |
+| 🧹 **Cleanup** | Complete uninstall with one command |
+| ⚙️ **Settings System** | Unified `settings.db` with auto‑migration |
 
 ---
 
-# 📦 Requirements
+## 📦 System Requirements
 
 | Item | Requirement |
-|---|---|
-| 🖥 OS | Ubuntu / Debian |
-| 👑 Access | Root Access |
-| 🧑‍💻 User | root / sudo |
-| ⚙️ CPU | 1 Core+ |
-| 🧠 RAM | 512MB+ Recommended |
-| 💾 Storage | 1GB+ Free Space |
-| 🏗 Architecture | x86_64 |
+|------|-------------|
+| 🖥 **OS** | Ubuntu / Debian (or compatible) |
+| 👑 **Access** | Root or `sudo` privileges |
+| 🧑‍💻 **User** | root / sudo |
+| ⚙️ **CPU** | 1 Core+ |
+| 🧠 **RAM** | 512MB+ (recommended) |
+| 💾 **Storage** | 1GB+ free space |
+| 🏗 **Architecture** | x86_64 |
 
-Required packages:
+### Required Packages
 
-```
-tor
-tor-geoipdb
-curl
-bc
+```bash
+tor tor-geoipdb curl bc netcat-openbsd
 ```
 
 ---
 
-# ⚡ Installation
+## ⚡ Installation
 
-## 📥 Download
+### 📥 Download the Script
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/icubaby/Tor-ML/main/tor-ml.sh -o tor-ml.sh
 ```
 
-## 🚀 Install
+### 🚀 Run the Installer
 
 ```bash
 sudo bash tor-ml.sh --install
 ```
 
-## 🎛 Run Dashboard
+### 🎛 Launch the Dashboard
+
+After installation, simply run:
 
 ```bash
 tor
@@ -102,28 +105,30 @@ tor
 
 ---
 
-# 🎛 Interactive Menu
+## 🎛 Interactive Menu
 
 | Key | Action |
-|:---:|---|
-| `1` | 📊 Full Status |
-| `2` | ▶️ Start Location |
-| `3` | ⏹ Stop Location |
-| `4` | 🚀 Start All Nodes |
-| `5` | 🛑 Stop All Nodes |
-| `6` | 🔄 Change SOCKS Port |
-| `7` | ⚡ Speed Test |
-| `8` | 🗑 Uninstall |
-| `0` | 🚪 Exit |
+|:---:|--------|
+| `1` | 📊 **Full Status** – show all nodes |
+| `2` | ▶️ **Start Location** – choose a node |
+| `3` | ⏹ **Stop Location** – stop a node |
+| `4` | 🚀 **Start All Nodes** |
+| `5` | 🛑 **Stop All Nodes** |
+| `6` | 🔄 **Change SOCKS Port** |
+| `7` | ⚡ **Speed Test** |
+| `8` | 📜 **View Log** – last 20 lines |
+| `9` | 📶 **Set Bandwidth** (MB) |
+| `10` | 🗑 **Uninstall** – complete removal |
+| `0` | 🚪 **Exit** |
 
 ---
 
-# 🌍 Supported Locations
+## 🌍 Supported Locations
 
-Tor ML includes **50 predefined Tor exit locations**:
+Tor ML includes **50 predefined Tor exit locations** with automatic port assignment:
 
-| ID | Code | Location | Port |
-|:--:|:--:|---|:--:|
+| # | Code | Location | Port |
+|:-:|:----:|----------|:----:|
 | 01 | DE | Germany | 48180 |
 | 02 | TR | Turkey | 48181 |
 | 03 | US | United States | 48182 |
@@ -177,21 +182,12 @@ Tor ML includes **50 predefined Tor exit locations**:
 
 ---
 
-# 🔌 SOCKS Configuration
+## 🔌 SOCKS Configuration
 
-Default SOCKS port range:
+- **Default port range:** `48180 – 48229`  
+- **Listen address:** `127.0.0.1` (localhost only)
 
-```
-48180 - 48229
-```
-
-Listen address:
-
-```
-127.0.0.1
-```
-
-Example:
+Example SOCKS5 proxy:
 
 ```
 127.0.0.1:48180
@@ -199,27 +195,31 @@ Example:
 
 ---
 
-# 🔢 Multiple Selection
+## 🔢 Multiple Selection Format
 
-Supported formats:
+When prompted for location numbers, you can use:
 
-```
-1.4.12
-```
-
-```
-1,4,12
-```
-
-```
-1 4 12
-```
+- **Range:** `1.4.12`  
+- **Comma‑separated:** `1,4,12`  
+- **Space‑separated:** `1 4 12`
 
 ---
 
-# 🌍 Xray Integration
+## 📶 Bandwidth Control
 
-## 🔌 SOCKS Outbound
+Limit bandwidth per location (in MB/s):
+
+- `0` = unlimited (default)
+- Recommended values: `5`, `10`, `20`, `50`, `100`
+
+Bandwidth is applied via Tor’s `BandwidthRate` and `BandwidthBurst`.  
+> **Note:** Changes take effect after restarting the node.
+
+---
+
+## 🌍 Xray / V2Ray Integration
+
+### 🔌 SOCKS Outbound Example
 
 ```json
 {
@@ -236,25 +236,19 @@ Supported formats:
 }
 ```
 
----
-
-## 🛣 Routing Rule
+### 🛣 Routing Rule
 
 Send selected inbound traffic through Tor:
 
 ```json
 {
   "type": "field",
-  "inboundTag": [
-    "your-inbound-tag"
-  ],
+  "inboundTag": ["your-inbound-tag"],
   "outboundTag": "tor-node"
 }
 ```
 
----
-
-## 🧪 Test Connection
+### 🧪 Test the Connection
 
 ```bash
 curl --socks5 127.0.0.1:48180 https://api.ipify.org
@@ -262,61 +256,73 @@ curl --socks5 127.0.0.1:48180 https://api.ipify.org
 
 ---
 
-# 📁 Directory Structure
+## 📁 Directory Structure
 
 ```
 /opt/tor-ml
-
-├── config     ⚙️ Tor configurations
-├── data       📂 Runtime data
-├── logs       📜 Instance logs
-└── status     📊 Node status
+├── 📁 config/                   # ⚙️  Configuration files
+│   ├── 🗄️  settings.db          # Unified settings (port, bandwidth, uptime)
+│   └── 📄 node_XX_PORT.conf    # Per‑node Tor configuration files
+├── 📂 data/                     # 💾 Runtime data directories (one per node)
+├── 📜 logs/                     # 📝 Instance logs
+└── 🏷️ status/                   # 📊 Cached IP & status files
 ```
 
 ---
 
-# 🔒 Security
+## 🔒 Security
 
-- 🔐 SOCKS ports listen only on localhost
-- 👤 Runs with unprivileged `debian-tor` user
-- 🚫 Default Tor service disabled
-- 🧩 Every node runs independently
-- 🌐 No public SOCKS exposure
+- 🔐 SOCKS ports bind to `127.0.0.1` only  
+- 👤 Runs with unprivileged `debian-tor` user  
+- 🚫 Default Tor service is disabled  
+- 🧩 Every node runs independently  
+- 🌐 No public SOCKS exposure  
+- 🛡️ `SocksPolicy` accepts only `127.0.0.1` and rejects everything else
 
 ---
 
-# 🗑 Uninstall
+## 🗑 Uninstall
 
-From menu:
+### From the Menu
 
 ```
-8 → Uninstall
+10 → Uninstall
 ```
 
-Manual:
+### Manual Removal
 
 ```bash
-sudo pkill -f "node_.*_48"
-
+sudo pkill -f "node_.*\.conf"
 sudo rm -rf /opt/tor-ml
-
 sudo rm -f /usr/local/bin/tor
 ```
 
 ---
 
-# ⚠ Disclaimer
+## 💖 Support the Project
 
-This project is provided for educational and research purposes only.
+If you find **Tor ML** useful, consider supporting its continued development.  
+Every contribution helps keep the project alive and improving!
 
-The author is not responsible for misuse, illegal activities, or damages caused by this software.
+| Network | Address |
+|---------|---------|
+| **BEP-20** (BSC) | `0x404fb6f281443c7f9e420a5dc96c2592ae1be3d2` |
+| **TON** (The Open Network) | `UQDA9l1hEI4Vn8krfx0K1kTVBCudcSqxn8w0Tgcf1ZNne9A4` |
 
-Use responsibly.
+> ⚠️ **Important:** Please double-check the network before sending any funds.  
+> Only send BEP-20 tokens to the BSC address and TON coins to the TON address.
 
 ---
 
-# 📄 License
+## ⚠ Disclaimer
+
+This project is provided for **educational and research purposes only**.  
+The author is not responsible for misuse, illegal activities, or damages caused by this software.  
+**Use responsibly.**
+
+---
+
+## 📄 License
 
 MIT License © 2026
 
-</div>
